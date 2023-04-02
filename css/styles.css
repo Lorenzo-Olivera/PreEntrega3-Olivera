@@ -1,0 +1,65 @@
+/* se pone default el estilo de la hoja */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: normal;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    text-decoration-color: none;
+}
+
+
+
+/* se estiliza header general */
+.tituloHeader{
+    width: 30%;
+    color: black;
+}
+
+/* ------ SIMULADOR--------*/
+
+/* main */
+.fondoImgSiml {
+background-image: url(../img/inversion1.jpg);
+height: 100vh;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.h2Selec{
+    padding: 5px;
+    margin-top: 100px;
+    background-color: azure;
+    border-radius: 10px;
+    
+}
+
+.datosSel{
+margin-top: 15%;
+}
+
+/* ------ INGRESO --------*/
+
+/* main */
+.fondoDatos {
+    background-image: url(../img/inversion2.jpg);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+
+.loginUs{
+    margin-top: 10%;
+}
