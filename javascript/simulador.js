@@ -7,10 +7,24 @@ btnComenzar.addEventListener("click", function () {
 
     if (nombreUsuario.value != "" && zonaUsuario.value != "") {
         calcularPrestamo(nombreUsuario.value, zonaUsuario.value)
-    } else {
-        alert("usted tiene campos vacios");
-    }
 
+
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'DATOS INCORRECTOS',
+            text: 'Hay campos vacios',
+        });
+
+        Toastify({
+            text: "Por favor, complete todos los campos",
+            backgroundColor: "red",
+            position: "center",
+            duration: 2000,
+            gravity: "top",
+            position: "right",
+        }).showToast();
+    }
 });
 
 function calcularPrestamo(nombreUsr, znaUsr) {
@@ -54,16 +68,30 @@ function calcularPrestamo(nombreUsr, znaUsr) {
 
     console.log(znaUsr);
 
-    alert(`Las opciones de inversión que le brinda ${zonaBancoElegido.nombre} son: 
-    - 1. ${plazo1} de interes a 1 mes 
-    - 2. ${plazo6} de intereses a 6 meses 
-    - 3. ${plazo12} de intereses a 12 meses`)
+    const resultadosContainer = document.getElementById("resultadosSimulacion");
+    resultadosContainer.innerHTML = `<h2>Las opciones de inversión que le brinda ${zonaBancoElegido.nombre} son:</h2>
+    <ol type="disc">
+        <li> - 1. Primera opción: 1 mes, ${plazo1} de interés</li>
+        <li> - 2. Segunda opción: 6 meses, ${plazo6} de interés</li>
+        <li> - 3. Tercera opción: 12 meses,  ${plazo12} de interés</li>
+    </ol>`;
 
-    alert("Gracias por elegirnos una vez más.")
-}
+    function calcularPlazo(monto, interes, meses) {
+        const plazo = ((monto * (1 + (interes / 100)) ** meses) * 100) / 100;
+        return plazo
+    }
 
-function calcularPlazo(monto, interes, meses) {
-    const plazo = ((monto * (1 + (interes / 100)) ** meses) * 100) / 100;
-    return plazo
 
+    Swal.fire
+        ({
+            icon: 'success',
+            title: 'DATOS CORRECTOS',
+            html: 'Finalizando su simulación',
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                timerInterval = 100
+            }
+        });
 }

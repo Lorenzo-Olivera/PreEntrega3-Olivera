@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <title>Plazos fijos</title>
 </head>
@@ -26,8 +27,8 @@
             <nav class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar w-25 text-white">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="./simulador.html" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="./simulador.html" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             SIMULADOR
                         </a>
                         <ul class="dropdown-menu">
@@ -37,6 +38,9 @@
                 </ul>
             </nav>
         </div>
+
+        <div id="resultados-simulacion"></div>
+
     </header>
 
     <main>
@@ -52,13 +56,15 @@
         <div class="container datosSel bg-opacity-75 bg-black">
             <div class="row">
                 <div class="d-flex justify-content-between">
-                    <input type="text" placeholder="INGRESE SU NOMBRE" id="nombreUsuario"class="border border-black border border-3 rounded-top">
+                    <input type="text" placeholder="INGRESE SU NOMBRE" id="nombreUsuario"
+                        class="border border-black border border-3 rounded-top">
                     <select name="opcionZona" id="opcionZona" class="border border-black border border-3 rounded-pill">
                         <option value="caba">CABA</option>
                         <option value="pba">PBA</option>
                         <option value="otro">OTRO PAIS</option>
                     </select>
-                    <input type="number" placeholder="MONTO INVERTIDO" id="monto" min="1000" class="border border-black border border-3 rounded-top">
+                    <input type="number" placeholder="MONTO INVERTIDO" id="monto" min="1000"
+                        class="border border-black border border-3 rounded-top">
 
                     <button id="botonComenzar" class="btn btn-success border border-black">COMENZAR
                         SIMULACION</button>
@@ -66,9 +72,19 @@
             </div>
         </div>
 
+        <div class="container">
+            <div class="d-flex text-center justify-content-center">
+                <div class="h2Selec bg-black bg-gradient text-white">
+                    <h2 id="resultadosSimulacion">AQUI APARECERA SU SIMULACION</h2>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <script src="../javascript/simulador.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>
